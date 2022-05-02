@@ -207,6 +207,10 @@ double** getGradeMatrix (char* filename, Grades fileInfo) {
     }
   }
 
+  // Make sure we write the last number to the last entry of the matrix
+  // In case we don't catch the end of file from the read system call
+  matrix[currrow][currcol] = atof(num);
+  
   errorWrap(close(fd), "close");
 
   return matrix;
